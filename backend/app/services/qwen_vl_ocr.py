@@ -17,6 +17,8 @@ API CONFIGURATION:
 import os
 import logging
 import base64
+import re
+import html
 from typing import Optional, Tuple, List, Dict
 from pathlib import Path
 
@@ -44,15 +46,15 @@ class QwenVLOCR:
     
     def __init__(self):
         """Initialize Qwen-VL-OCR service."""
-        self.api_key = os.getenv('ALIBABA_API_KEY')
+        self.api_key = os.getenv('ALIBABA_API_KEY') or os.getenv('DASHSCOPE_API_KEY')
         self.available = False
         self.client = None
         self.initialization_error = None
         
         if not self.api_key:
             self.initialization_error = (
-                "ALIBABA_API_KEY not set. "
-                "Set ALIBABA_API_KEY environment variable to enable Qwen-VL-OCR."
+                "ALIBABA_API_KEY or DASHSCOPE_API_KEY not set. "
+                "Set either environment variable to enable Qwen-VL-OCR."
             )
             logger.error(f"❌ {self.initialization_error}")
             return
@@ -104,7 +106,7 @@ class QwenVLOCR:
         if not self.available:
             error_msg = self.initialization_error or (
                 "CRITICAL: Qwen-VL-OCR is unavailable. "
-                "Set ALIBABA_API_KEY environment variable. "
+                "Set ALIBABA_API_KEY or DASHSCOPE_API_KEY environment variable. "
                 "OCR processing HALTED - no fallback available."
             )
             raise RuntimeError(error_msg)
@@ -221,9 +223,36 @@ class QwenVLOCR:
                 logger.error(f"   ❌ {error_msg}")
                 raise RuntimeError(error_msg)
             
-            # Generic error
+            # Detect generic error
             logger.error(f"   ❌ Qwen-VL-OCR error: {e}")
             raise RuntimeError(f"Qwen-VL-OCR failed: {e}. OCR processing HALTED.")
+    
+    def _strip_tags(self, text: str) -> str:
+        """
+        Strip HTML tags and markdown code blocks from the OCR response.
+        
+        Args:
+            text: Raw OCR output
+            
+        Returns:
+            Cleaned text
+        """
+        if not text:
+            return ""
+        
+        text = html.unescape(text)
+            
+        text = re.sub(r'```(?:[a-zA-Z0-9]+)?\s*', '', text)
+        text = re.sub(r'```', '', text)
+        
+        text = re.sub(r'</(?:p|div|br|li|tr|h[1-6])\s*>', '\n', text, flags=re.IGNORECASE)
+        text = re.sub(r'<(?:p|div|br|li|tr|h[1-6])(?:\s+[^>]*)?>', '\n', text, flags=re.IGNORECASE)
+        text = re.sub(r'<[^>]+>', '', text)
+        
+        lines = [line.strip() for line in text.split('\n')]
+        text = '\n'.join([line for line in lines if line])
+        
+        return text.strip()
     
     def _get_ocr_prompt(self) -> str:
         """
@@ -261,6 +290,8 @@ OUTPUT REQUIREMENTS:
    - Continue transcribing text after the diagram marker
 
 4. DO NOT:
+   - Use HTML tags (e.g., <html>, <body>, <p>, <table>)
+   - Wrap output in markdown code blocks (```)
    - Skip any text content
    - Convert text regions to descriptions
    - Apply any image processing
@@ -293,6 +324,9 @@ Extract EVERYTHING as editable text."""
             Tuple of (clean_text, diagram_regions)
         """
         import re
+        
+        # CRITICAL: Strip HTML tags and markdown code blocks first
+        text = self._strip_tags(text)
         
         diagram_regions = []
         diagram_idx = 0

@@ -13,10 +13,10 @@ class OCREngine:
         print("Loading OCR models...")
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         if torch.cuda.is_available():
-            print(f"✅ GPU detected: {torch.cuda.get_device_name(0)}")
+            print(f"GPU detected: {torch.cuda.get_device_name(0)}")
             print(f"   CUDA Version: {torch.version.cuda}")
-        else:
-            print("⚠️  No GPU detected - using CPU (slower)")
+        if self.device == 'cpu':
+            print("WARNING: No GPU detected - using CPU (slower)")
         
         try:
             self.trocr_processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten")

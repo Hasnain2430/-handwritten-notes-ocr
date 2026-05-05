@@ -17,11 +17,12 @@ paddleocr==2.7.3
 pytesseract==0.3.10
 
 # Math OCR
-pix2text==0.2.3
+# Optional on Windows; install separately only if CMake is available.
+# pix2text==0.2.3
 
 # Gemini Vision API (fallback OCR)
 # CRITICAL: Use recent version that properly handles list_models() generator
-google-generativeai>=0.8.0
+# google-generativeai>=0.8.0
 openai>=1.0.0  # Required for Qwen-VL-OCR (Alibaba Cloud)
 
 # Deep Learning (for TrOCR - optional, used in ocr_engine.py)

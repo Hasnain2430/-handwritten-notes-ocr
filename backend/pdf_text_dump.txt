@@ -1,0 +1,120 @@
+FINAL PROJECT: PHASE 2
+Transformation into a Purely Agentic System with Professional, Ethical &
+Legal Integration
+Total Marks: 150
+CLO DESCRIPTION
+CLO 4 Professional ethical theories & code of ethics (IEEE/ACM)
+CLO 5 Intellectual property rights & mechanisms of IPR protection
+CLO 6 Privacy, Data protection, Computer Crimes, Cyber protection Laws, PECA 2016
+CLO 8Software Industry dynamics, business & revenue models, technology trends &
+careers
+I. Core Requirement
+Phase 2 requires students to transform their Phase 1 application into a Purely Agentic System, while
+explicitly integrating professional practices, ethical reasoning, legal awareness, and industry understanding.
+Required Actions:
+Present Phase 1 Application
+Perform technical + ethical + legal analysis
+Redesign system using Agentic principles
+Reflect alignment with NCEAC learning domains
+II. Presentation Structure (Enhanced Slides)
+1. Title Slide : Application Name, Team Members, Course Title
+2. Phase 1 Recap : Problem, users, technology, features. Screenshot of system.
+3. Computing as a Formal Profession : 
+Why software development is a professional discipline
+Responsibility toward: Users, Society, Data
+4. Ethics vs. Morals : 
+Morals → personal beliefs• 
+• 
+• 
+• 
+• 
+• 
+• 
+Confidential Academic Document - Professional Practices in IT
+
+---PAGE BREAK---
+
+Ethics → professional standards
+Apply to your app: Did your design follow personal convenience or professional
+responsibility?
+5. Professional Ethics : Responsibility in Code quality, Security, User safety.
+6. Ethical Decision Making : 
+Identify one real decision from Phase 1: Speed vs Quality, Copy vs Original work, Data usage
+7. Importance of Ethical Decision Making : Impact on Users, Society, System trust.
+8. Ethical Theories & Human-Centered Design : 
+Apply at least ONE: Utilitarianism, Deontology
+Include: Human-centered design, Risks of addictive systems (e.g., TikTok-like engagement
+traps)
+9. ACM / IEEE Code of Ethics : Reference ACM/IEEE. Explain 2–3 principles followed, 1 principle
+potentially violated.
+10. Ethical Decision Process (4-Step Model) : Apply: Identify issue, Analyze stakeholders, Evaluate
+alternatives, Make justified decision. Include: Cybersecurity considerations, Vulnerability disclosure
+dilemmas.
+11. Software Development & Industry Practices : Compare your student project vs software house
+workflow. Include: Communication, Version control, AI ethics & bias.
+12. Trends in IT & Agentic Systems : Rise of AI systems, Autonomous agents, Industry shift toward
+intelligent systems.
+13. How this Project helpful for your career : Skills needed: AI + Software Engineering, Ethics
+awareness in the agentic AI era.
+14. Virtual Work & Sustainability : Remote collaboration, Work-life balance. Green computing:
+Efficient systems, Reduced resource consumption.
+15. Legal Aspects of Computing : Your responsibilities as a developer: Data protection, User rights.
+16. Intellectual Property Rights (IPR) : Ownership of your app, Licensing options. Include: Data
+protection awareness (GDPR mindset).
+17. Computer Crimes & Risks : Risks related to your app: Data theft, Misuse, Unauthorized access.
+18. Computer Contracts : Terms of service, User agreements, Developer responsibilities.
+🔁 AGENTIC TRANSFORMATION SECTION
+19. Technical Limitations of Phase 1 : Static logic, No autonomy, No intelligence.
+20. Agentic System Concept : Perception, Decision-making, Action, Learning.
+21. Gap Analysis : Why your system is not agentic.• 
+• 
+• 
+• 
+• 
+Confidential Academic Document - Professional Practices in IT
+
+---PAGE BREAK---
+
+22. Agentic Vision : Transform Tool → Agent, Reactive → Proactive.
+23. Agent Architecture : Flow: Input → Processing → Decision → Action → Feedback. Add: Memory,
+External tools.
+24. Agent Type Selection : Goal-based / Learning agent (justify choice).
+25. Operational Workflow : Observe → Interpret → Decide → Act → Learn.
+26. Intelligence Layer : ML / Rules / LLMs (e.g., ChatGPT).
+27. Memory & Context : Short-term vs long-term memory.
+28. Autonomy Level : Semi vs full autonomy (justify realistically).
+29. Human-in-the-Loop : Where human controls the system.
+30. Ethical Agent Design : Privacy, Bias, Transparency, User control.
+31. Risk Assessment : Incorrect decisions, Over-automation, Misuse.
+32. Safety Mechanisms : Logging, Override, Explainability.
+III. Comparative Analysis
+FEATURE PHASE 1 AGENTIC VERSION
+Control User-driven System-driven
+Intelligence Static Adaptive
+Behavior Reactive Proactive
+Confidential Academic Document - Professional Practices in IT
+
+---PAGE BREAK---
+
+IV. Evaluation Criteria (NCEAC-Aligned)
+Students will be assessed on:
+Ethical Understanding (CLO 4)
+Legal & IPR Awareness (CLO 5, 6)
+Agentic System Design Quality
+Industry & Career Awareness (CLO 8)
+Critical Thinking & Honesty
+V. Academic Insight
+Average submissions:  Add superficial AI (chatbots, APIs)
+Outstanding submissions:  Redesign decision-making systems, Address ethical risks of autonomy,
+Demonstrate professional responsibility.
+Professional Practices in IT
+Final Project – Phase 2 (NCEAC Compliant)
+Confidential Academic Document • 
+• 
+• 
+• 
+• 
+Confidential Academic Document - Professional Practices in IT
+
+---PAGE BREAK---
+

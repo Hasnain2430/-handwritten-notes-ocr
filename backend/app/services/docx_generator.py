@@ -13,6 +13,7 @@ from docx.oxml import parse_xml
 from typing import List, Dict, Any, Optional
 from pathlib import Path
 import re
+import html
 import logging
 
 logger = logging.getLogger(__name__)
@@ -198,7 +199,7 @@ class DOCXGenerator:
             return
         
         # Ensure text is string - preserve raw OCR output
-        text = str(text)
+        text = self._clean_text(str(text))
         if not text or not text.strip():
             return
         
@@ -634,14 +635,17 @@ class DOCXGenerator:
         if self._is_image_path(text):
             return ""
         
-        # PRESERVE RAW OCR OUTPUT - no cleaning, no correction
-        # Do NOT collapse spaces - preserve original spacing
-        # Do NOT correct OCR errors - preserve original characters
-        # Do NOT strip - preserve leading/trailing whitespace if present
-        # Only normalize line endings for consistency
+        text = html.unescape(text)
         text = text.replace('\r\n', '\n').replace('\r', '\n')
+        text = re.sub(r'```(?:[a-zA-Z0-9]+)?\s*', '', text)
+        text = re.sub(r'```', '', text)
+        text = re.sub(r'</(?:p|div|br|li|tr|h[1-6])\s*>', '\n', text, flags=re.IGNORECASE)
+        text = re.sub(r'<(?:p|div|br|li|tr|h[1-6])(?:\s+[^>]*)?>', '\n', text, flags=re.IGNORECASE)
+        text = re.sub(r'</?(?:html|body)\s*>', '\n', text, flags=re.IGNORECASE)
+        text = re.sub(r'<[^>]+>', '', text)
+        lines = [line.strip() for line in text.split('\n')]
+        text = '\n'.join([line for line in lines if line])
         
-        # Return as-is - preserve raw OCR output
         return text
 
 
