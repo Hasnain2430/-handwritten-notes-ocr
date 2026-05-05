@@ -34,8 +34,9 @@ transformers==4.35.2
 # NOTE (cloud deploy): Render installs from PyPI and will fail on ">=...+cu121".
 # Use standard PyPI wheels here (CPU wheels on Linux by default).
 # If you need CUDA locally, install the CUDA wheels separately on your machine.
-torch==2.5.1
-torchvision==0.20.1
+# torch and torchvision installed separately in Dockerfile (CPU wheels)
+# torch==2.5.1
+# torchvision==0.20.1
 
 # Document Generation
 python-docx==1.1.0
